@@ -126,6 +126,5 @@ This tool is for **educational purposes only** and does not constitute legal adv
 
 ## 👨‍💻 Author
 
-**Karthick S**  
-B.E. Computer Science and Engineering  
-Final Year Project  
+**Karthick S**
+
