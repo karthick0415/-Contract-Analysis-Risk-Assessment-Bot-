@@ -13,25 +13,30 @@ def extract_clauses(text):
     return [c.strip() for c in clauses if len(c.strip()) > 40]
 
 def extract_entities(text):
-    doc = nlp(text)
-    data = {
+    entities = {
         "PARTIES": [],
         "DATES": [],
         "AMOUNTS": [],
         "LOCATIONS": []
     }
 
+    if not nlp:
+        return entities  # fallback (no crash)
+
+    doc = nlp(text)
+
     for ent in doc.ents:
         if ent.label_ == "ORG":
-            data["PARTIES"].append(ent.text)
+            entities["PARTIES"].append(ent.text)
         elif ent.label_ == "DATE":
-            data["DATES"].append(ent.text)
+            entities["DATES"].append(ent.text)
         elif ent.label_ == "MONEY":
-            data["AMOUNTS"].append(ent.text)
-        elif ent.label_ in ["GPE", "LOC"]:
-            data["LOCATIONS"].append(ent.text)
+            entities["AMOUNTS"].append(ent.text)
+        elif ent.label_ == "GPE":
+            entities["LOCATIONS"].append(ent.text)
 
-    return data
+    return entities
+
 
 def obligation_type(clause):
     if "shall" in clause.lower():
@@ -41,4 +46,5 @@ def obligation_type(clause):
     if "shall not" in clause.lower():
         return "PROHIBITION"
     return "NEUTRAL"
+
 
