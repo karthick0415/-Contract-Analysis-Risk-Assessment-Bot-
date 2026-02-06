@@ -1,0 +1,13 @@
+{"timestamp": "2026-02-06 00:09:07.612511", "analysis": {"risk_score": 40, "entities": {"PARTIES": [], "DATES": ["30 days"], "AMOUNTS": [], "LOCATIONS": []}}}
+{"timestamp": "2026-02-06 00:27:34.687486", "analysis": {"risk_score": 40, "entities": {"PARTIES": [], "DATES": ["30 days"], "AMOUNTS": [], "LOCATIONS": []}}}
+{"timestamp": "2026-02-06 00:36:46.264576", "analysis": {"risk_score": 40, "entities": {"PARTIES": [], "DATES": ["30 days"], "AMOUNTS": [], "LOCATIONS": []}}}
+{"timestamp": "2026-02-06 07:00:14.951168", "analysis": {"risk_score": 40, "entities": {"PARTIES": [], "DATES": ["30 days"], "AMOUNTS": [], "LOCATIONS": []}}}
+{"timestamp": "2026-02-06 07:15:55.602989", "analysis": {"risk_score": 35, "entities": {"PARTIES": ["Alpha Corp"], "DATES": ["every year"], "AMOUNTS": [], "LOCATIONS": []}}}
+{"timestamp": "2026-02-06 07:18:17.240972", "analysis": {"risk_score": 35, "entities": {"PARTIES": ["Alpha Corp"], "DATES": ["every year"], "AMOUNTS": [], "LOCATIONS": []}}}
+{"timestamp": "2026-02-06 07:19:48.025697", "analysis": {"risk_score": 35, "entities": {"PARTIES": ["Alpha Corp"], "DATES": ["every year"], "AMOUNTS": [], "LOCATIONS": []}}}
+{"timestamp": "2026-02-06 07:20:40.040501", "analysis": {"risk_score": 35, "entities": {"PARTIES": ["Alpha Corp"], "DATES": ["every year"], "AMOUNTS": [], "LOCATIONS": []}}}
+{"timestamp": "2026-02-06 07:23:16.125213", "analysis": {"risk_score": 35, "entities": {"PARTIES": ["Alpha Corp"], "DATES": ["every year"], "AMOUNTS": [], "LOCATIONS": []}}}
+{"timestamp": "2026-02-06 07:24:10.347562", "analysis": {"risk_score": 35, "entities": {"PARTIES": ["Alpha Corp"], "DATES": ["every year"], "AMOUNTS": [], "LOCATIONS": []}}}
+{"timestamp": "2026-02-06 07:41:33.997632", "analysis": {"risk_score": 35, "entities": {"PARTIES": ["Alpha Corp"], "DATES": ["every year"], "AMOUNTS": [], "LOCATIONS": []}}}
+{"timestamp": "2026-02-06 07:41:55.401819", "analysis": {"risk_score": 20, "entities": {"PARTIES": ["ABC Technologies Pvt Ltd", "XYZ Services"], "DATES": ["monthly", "30 days"], "AMOUNTS": [], "LOCATIONS": ["India"]}}}
+{"timestamp": "2026-02-06 10:22:10.160071", "analysis": {"risk_score": 35, "entities": {"PARTIES": ["Alpha Corp"], "DATES": ["every year"], "AMOUNTS": [], "LOCATIONS": []}}}

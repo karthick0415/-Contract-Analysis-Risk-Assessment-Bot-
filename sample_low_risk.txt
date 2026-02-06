@@ -1,0 +1,11 @@
+This Service Agreement is entered into between ABC Technologies Pvt Ltd and XYZ Services.
+
+The service provider shall deliver monthly software maintenance services as agreed.
+
+Either party may terminate this agreement by providing 30 days written notice.
+
+The total payment for services shall be INR 50,000 per month.
+
+Both parties agree to keep all confidential information private.
+
+This agreement shall be governed by the laws of India.

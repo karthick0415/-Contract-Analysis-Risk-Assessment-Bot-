@@ -1,0 +1,7 @@
+streamlit
+anthropic
+spacy
+langdetect
+python-docx
+pypdf
+deep-translator
