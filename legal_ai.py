@@ -1,6 +1,11 @@
 import os
 
 model = None
+import os
+
+API_KEY = os.getenv("GEMINI_API_KEY")
+print("DEBUG → GEMINI_API_KEY FOUND:", bool(API_KEY))
+
 
 try:
     import google.generativeai as genai
@@ -50,3 +55,4 @@ Clause:
             "- It may negatively affect a small business.\n"
             "- Consider renegotiating safer terms."
         )
+
