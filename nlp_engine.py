@@ -1,7 +1,12 @@
-import spacy
-import re
 
-nlp = spacy.load("en_core_web_sm")
+import re
+import spacy
+
+try:
+    nlp = spacy.load("en_core_web_sm")
+except Exception:
+    nlp = None  # fallback for cloud deployment
+
 
 def extract_clauses(text):
     clauses = re.split(r'\n\n|\.', text)
@@ -36,3 +41,4 @@ def obligation_type(clause):
     if "shall not" in clause.lower():
         return "PROHIBITION"
     return "NEUTRAL"
+
