@@ -1,10 +1,12 @@
-import os
+import streamlit as st
 
 model = None
 
 try:
     import google.generativeai as genai
-    API_KEY = os.getenv("GEMINI_API_KEY")
+
+    # ✅ Streamlit-native secrets access
+    API_KEY = st.secrets.get("GEMINI_API_KEY")
 
     if API_KEY:
         genai.configure(api_key=API_KEY)
@@ -15,9 +17,10 @@ except Exception:
 
 
 def explain_clause(clause):
+    # Fallback if AI is unavailable
     if model is None:
         return (
-            "⚠ AI explanation unavailable (API key not configured).\n\n"
+            "⚠ AI explanation unavailable.\n\n"
             "Simple explanation:\n"
             "- This clause creates legal or financial risk.\n"
             "- It may negatively affect a small business.\n"
@@ -25,18 +28,21 @@ def explain_clause(clause):
         )
 
     prompt = f"""
+You are a legal assistant for Indian small businesses.
+
 Explain the following contract clause in VERY SIMPLE business English.
 
 1. What this clause means
 2. What risk it creates
-3. One safer alternative
+3. One safer alternative or negotiation suggestion
 
 Clause:
 {clause}
 """
 
     try:
-        return model.generate_content(prompt).text
+        response = model.generate_content(prompt)
+        return response.text
     except Exception:
         return (
             "⚠ AI explanation temporarily unavailable.\n\n"
