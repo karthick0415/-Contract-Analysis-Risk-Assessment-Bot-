@@ -1,5 +1,12 @@
 import os
-import google.generativeai as genai
+
+try:
+    import google.generativeai as genai
+    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+    model = genai.GenerativeModel("gemini-flash-latest")
+except Exception:
+    genai = None
+    model = None
 
 # Configure Gemini API
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
@@ -8,6 +15,15 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel("gemini-flash-latest")
 
 def explain_clause(clause):
+    if not model:
+        return (
+            "⚠ AI explanation temporarily unavailable.\n\n"
+            "Simple explanation:\n"
+            "- This clause creates financial risk.\n"
+            "- It may expose your business to high losses.\n"
+            "- You should negotiate limits or safer terms."
+        )
+
     prompt = f"""
 You are a legal assistant for Indian small businesses.
 
@@ -17,11 +33,6 @@ Explain the following contract clause in VERY SIMPLE business English.
 2. What risk it creates for a small business
 3. One safer alternative or negotiation suggestion
 
-Rules:
-- No legal jargon
-- No law names
-- Simple English only
-
 Clause:
 {clause}
 """
@@ -29,13 +40,12 @@ Clause:
     try:
         response = model.generate_content(prompt)
         return response.text
-
     except Exception:
-        # ✅ Fallback ONLY if AI is unavailable
         return (
             "⚠ AI explanation temporarily unavailable.\n\n"
             "Simple explanation:\n"
-            "- This clause creates financial risk for your business.\n"
-            "- It may expose you to high or unlimited losses.\n"
-            "- You should negotiate limits or mutual protection."
+            "- This clause creates financial risk.\n"
+            "- It may expose your business to high losses.\n"
+            "- You should negotiate limits or safer terms."
         )
+
